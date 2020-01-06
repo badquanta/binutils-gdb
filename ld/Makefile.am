@@ -284,6 +284,7 @@ ALL_EMULATION_SOURCES = \
 	eelf32xstormy16.c \
 	eelf32xtensa.c \
 	eelf_i386.c \
+	eelf_i386_BQos.c \
 	eelf_i386_be.c \
 	eelf_i386_fbsd.c \
 	eelf_i386_ldso.c \
@@ -455,6 +456,7 @@ ALL_64_EMULATION_SOURCES = \
 	eelf_k1om.c \
 	eelf_k1om_fbsd.c \
 	eelf_x86_64.c \
+	eelf_x86_64_BQos.c \
 	eelf_x86_64_cloudabi.c \
 	eelf_x86_64_fbsd.c \
 	eelf_x86_64_nacl.c \
@@ -1087,3 +1089,13 @@ distclean-local:
 	rm -rf ldscripts
 
 MAINTAINERCLEANFILES += ld.info
+
+# Add this after eelf_i386.c:
+eelf_i386_myos.c: $(srcdir)/emulparams/elf_i386_myos.sh \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+	${GENSCRIPTS} elf_i386_myos "$(tdir_elf_i386_myos)"
+ 
+# Add this after eelf_x86_64.c:
+eelf_x86_64_myos.c: $(srcdir)/emulparams/elf_x86_64_myos.sh \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+	${GENSCRIPTS} elf_x86_64_myos "$(tdir_elf_x86_64_myos)"

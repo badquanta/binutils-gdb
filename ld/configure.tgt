@@ -235,6 +235,15 @@ hppa*-*-lites*)		targ_emul=hppaelf ;;
 hppa*-*-netbsd*)	targ_emul=hppanbsd ;;
 hppa*-*-openbsd*)	targ_emul=hppaobsd
 			;;
+[3-7]86-*-BQos*)
+			targ_emul=elf_i386_BQos
+			targ_extra_emuls=elf_i386
+			targ64_extra_emuls="elf_x86_64_BQos elf_x86_64"
+			;;
+x86_64-*-BQos*)
+			targ_emul=elf_x86_64_BQos
+			targ_extra_emuls="elf_i386_BQos elf_x86_64 elf_i386"
+			;;
 i[3-7]86-*-nto-qnx*)	targ_emul=i386nto ;;
 i[3-7]86-*-go32)	targ_emul=i386go32 ;;
 i[3-7]86-*-msdosdjgpp*) targ_emul=i386go32 ;;
