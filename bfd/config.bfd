@@ -222,7 +222,7 @@ case "${targ}" in
   i[3-7]86-*-BQos*)
     targ_defvec=i386_elf32_vec
     targ_selvecs=
-    targ64_selvecs=x86_64_elf64_vev
+    targ64_selvecs=x86_64_elf64_vec
     ;;
 #ifdef BFD64
   x86_64-*-BQos*)
